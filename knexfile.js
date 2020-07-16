@@ -13,6 +13,7 @@ module.exports = {
     seeds: {
       directory: './data/seeds'
     },
+    useNullAsDefault: true,
     pool: {
       afterCreate: (conn, done) => {
         // runs after a connection is made to the sqlite engine
