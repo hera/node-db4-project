@@ -36,4 +36,17 @@ router.get("/:id/shoppinglist", (req, res) => {
 });
 
 
+router.get("/:id/instructions", (req, res) => {
+    recipeDb.getInstructions(req.params.id)
+        .then(instructions => {
+            res.status(200).json(instructions);
+        })
+        .catch(error => {
+            res.status(500).json({
+                error: "Server error. Could not get all instructions for the given recipe.",
+                description: error
+            });
+        });
+});
+
 module.exports = router;
